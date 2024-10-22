@@ -25,7 +25,7 @@ Drawing Analysis with AI is a web application that leverages Google API and Open
 
 ## Installation & Setup:
 
-- Clone the repository: git clone https://github.com/yourusername/drawing-analysis-ai.git
+- Clone the repository: git clone [https://github.com/yourusername/drawing-analysis-ai.git](https://github.com/yigittaskin/drawing-analysis-with-ai.git)
 
 ### Navigate to the project directory:
 
@@ -70,7 +70,7 @@ Yapay Zeka ile Çizim Analizi, Google API ve OpenAI GPT-4’ü kullanarak çizim
 
 ## Kurulum & Başlatma:
 
-- Depoyu klonlayın: git clone https://github.com/yourusername/drawing-analysis-ai.git
+- Depoyu klonlayın: git clone [https://github.com/yourusername/drawing-analysis-ai.git](https://github.com/yigittaskin/drawing-analysis-with-ai.git)
 
 - Proje dizinine gidin: cd drawing-analysis-ai
 

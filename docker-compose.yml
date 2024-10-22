@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Laravel Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: image-analiysis-ai
+    volumes:
+      - ./:/var/www/html
+      - ./googlevisionapi.json:/var/www/html/googlevisionapi.json # JSON dosyasını mount et
+    ports:
+      - "8080:80"
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+      - GOOGLE_APPLICATION_CREDENTIALS=/var/www/html/googlevisionapi.json # Google Vision API anahtar dosyasının yolunu belirt
+    depends_on:
+      - mysql
+    networks:
+      - laravel-net
+
+  # MySQL Database
+  mysql:
+    image: mysql:8
+    container_name: image-analiysis-ai-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: image-analysis-ai-db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ""
+    command: --port=3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - laravel-net
+
+networks:
+  laravel-net:

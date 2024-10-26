@@ -53,10 +53,10 @@ class DrawingController extends Controller
             'messages' => [
                 [
                     'role' => 'user',
-                    'content' => 'Analyze the following image description and provide insights about the person who might have drawn this: ' . implode(', ', $descriptions) . '. Provide the analysis in ' . $this->getLanguageName($selectedLanguage) . '.'
+                    'content' => 'Öncelikle bana '. $this->getLanguageName($selectedLanguage) . ' cevap ver. Sen bir çizilen resmin analizini yapacaksın. Sana açıklamasını verdiğim bu çizimi analiz et ve çizimi yapan kişinin duygusal ve psikolojik özellikleri hakkında detaylı bir yorum sun. Çizimle ilgili açıklamadaki kelimeleri doğrudan bahsetmekten kaçın; bunun yerine, bu kelimelerin işaret ettiği temaları veya görsel unsurları psikolojik açıdan değerlendir. Çizimin genel havasını ve içeriğini ele alarak, bu kişinin sanatsal ve duygusal karakteristik özelliklerini değerlendir. Analizi ' . $this->getLanguageName($selectedLanguage) . ' dilinde yap ve bana cevabı ' . $this->getLanguageName($selectedLanguage) . 'olarak ver. Çizim hakkında kapsamlı bir psikolojik analiz sun. Açıklama: ' . implode(', ', $descriptions) . '.'
                 ]
             ],
-            'max_tokens' => 300,
+            'max_tokens' => 500,
         ]);
 
         $analysis = $openAiResponse->json('choices')[0]['message']['content'] ?? 'No analysis available.';
@@ -70,17 +70,14 @@ class DrawingController extends Controller
     private function getLanguageName($code)
     {
         $languages = [
-            'en' => 'English',
-            'es' => 'Spanish',
-            'fr' => 'French',
-            'de' => 'German',
-            'it' => 'Italian',
-            'pt' => 'Portuguese',
-            'ru' => 'Russian',
-            'zh' => 'Chinese',
-            'ja' => 'Japanese',
-            'ar' => 'Arabic',
-            'tr' => 'Turkish',
+            'en' => 'İngilizce',
+            'es' => 'İspanyolca',
+            'fr' => 'Fransızca',
+            'de' => 'Almanca',
+            'it' => 'İtalyanca',
+            'pt' => 'Portekizce',
+            'ru' => 'Rusça',
+            'tr' => 'Türkçe',
         ];
 
         return $languages[$code] ?? 'English';

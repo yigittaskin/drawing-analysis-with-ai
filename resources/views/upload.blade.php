@@ -20,9 +20,6 @@
                     <option value="it">Italian</option>
                     <option value="pt">Portuguese</option>
                     <option value="ru">Russian</option>
-                    <option value="zh">Chinese</option>
-                    <option value="ja">Japanese</option>
-                    <option value="ar">Arabic</option>
                 </select>
             </div>
 
